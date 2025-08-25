@@ -15,7 +15,7 @@ The application should start with a basic main menu featuring two buttons:
 Example mockup:
 ![Main Menu](main-menu.png "Main menu mockup")
 
-The application should load example input JSON files such as [`sample-input.json`](sample-input.json). The file contains a list of question-answer items. The goal is to present each key (question), wait for user input, and then compare it with the expected value (answer). The user is notified whether the answer was correct.
+The application should load example input JSON files such as [`sample-input.json`](sample-input.json). The file contains a list of question-answer items. The goal is to present each question, wait for user input, and then compare it with the expected answer. The user is notified whether the answer was correct.
 ## Strict Dictionary Drill
 
 There should be a window that loads a sample JSON file and displays the following:
@@ -28,6 +28,7 @@ There should be a window that loads a sample JSON file and displays the followin
 - **Textbox "Question":** Read-only
 - **Textbox "Answer":** User enters the answer here
 Questions are asked in random order. If the user answers a question correctly, it will not be asked again in the session. Incorrectly answered questions will be repeated until answered correctly.
+When user is required to provide the answer the focus should be on the input control. Enter key should always submit the answer.
 
 ## Strict Dictionary Test
 
@@ -53,7 +54,7 @@ Application should start with basic main menu with two buttons
 - Strict dictionary test
 Example mockup is in file main-menu.png
 
-Application should load example input json files like sample-input.json. The file contains list of question-answer items. The goal is to present each key (question) and wait for user input and then compare with expected value (answer). The user is notified whether or not the answer was correct or not.
+Application should load example input json files like sample-input.json. The file contains list of question-answer items. The goal is to present each question and wait for user input and then compare with expected answer. The user is notified whether or not the answer was correct or not.
 
 ## Strict dictionary drill ##
 There should be a window that loads a sample json file and displays the following things:

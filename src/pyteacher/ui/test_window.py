@@ -35,7 +35,6 @@ class TestWindow(QWidget):
         self.question_edit.setReadOnly(True)
         answer_label = QLabel("Answer:")
         self.answer_edit = QLineEdit()
-        submit_btn = QPushButton("Submit")
         load_btn = QPushButton("Load Questions File")
         layout.addWidget(self.mode_label)
         layout.addWidget(self.file_label)
@@ -46,7 +45,6 @@ class TestWindow(QWidget):
         layout.addWidget(self.question_edit)
         layout.addWidget(answer_label)
         layout.addWidget(self.answer_edit)
-        layout.addWidget(submit_btn)
         self.setLayout(layout)
 
         def load_file():
@@ -92,7 +90,7 @@ class TestWindow(QWidget):
                 results.exec()
 
         load_btn.clicked.connect(load_file)
-        submit_btn.clicked.connect(submit_answer)
+        self.answer_edit.returnPressed.connect(submit_answer)
 
     def update_ui(self):
         if self.controller and self.controller.current_idx is not None:
@@ -102,5 +100,6 @@ class TestWindow(QWidget):
             self.left_label.setText(f"Left: {stats['left']}")
             q = self.controller.session.questions[self.controller.current_idx]
             self.question_edit.setText(q.question)
+            self.answer_edit.setFocus()
         else:
             self.question_edit.setText("")

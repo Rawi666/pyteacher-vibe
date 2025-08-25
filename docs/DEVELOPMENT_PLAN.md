@@ -107,8 +107,9 @@ This development plan outlines the major phases and tasks for building the langu
 ### Task 4.2: Question-Answer Interface
 - Create read-only `QLineEdit` for question display
 - Create editable `QLineEdit` for answer input
-- Add submit button or Enter key handling
-- Implement focus management for smooth UX
+- Ensure the answer input control is always focused when a new question is presented
+- Enter key should always submit the answer (no separate submit button required)
+- Implement focus management so user can immediately type the answer without extra clicks
 
 ### Task 4.3: Drill Logic Implementation
 - Create `DrillController` class with methods:
