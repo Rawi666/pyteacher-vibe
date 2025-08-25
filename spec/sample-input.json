@@ -1,9 +1,9 @@
 [
-    {"key": "a", "value": "a"},
-    {"key": "b", "value": "b"},
-    {"key": "c", "value": "c"},
-    {"key": "d", "value": "d"},
-    {"key": "e", "value": "e"},
-    {"key": "f", "value": "f"},
-    {"key": "g", "value": "g"}
+    {"question": "a", "answer": "a"},
+    {"question": "b", "answer": "b"},
+    {"question": "c", "answer": "c"},
+    {"question": "d", "answer": "d"},
+    {"question": "e", "answer": "e"},
+    {"question": "f", "answer": "f"},
+    {"question": "g", "answer": "g"}
 ]
