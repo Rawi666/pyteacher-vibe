@@ -23,7 +23,17 @@ class DrillController:
         return False
 
     def next_question(self):
-        self.current_idx = self._get_next_question_idx()
+        import random
+        remaining = [idx for idx in range(len(self.session.questions)) if idx not in self.session.correct]
+        if not remaining:
+            self.current_idx = None
+            return
+        # Remove current_idx from candidates if possible
+        candidates = [idx for idx in remaining if idx != self.current_idx]
+        if candidates:
+            self.current_idx = random.choice(candidates)
+        else:
+            self.current_idx = random.choice(remaining)
 
     def update_statistics(self):
         return self.session.get_stats()
