@@ -1,3 +1,52 @@
+---
+post_title: "Application for Learning Foreign Languages"
+author1: "Your Name"
+---
+
+## Application for Learning Foreign Languages
+Application should start with basic main menu with two buttons
+- Strict dictionary drill
+- Strict dictionary test
+Example mockup is in file main-menu.png
+The application should start with a basic main menu featuring two buttons:
+- **Strict Dictionary Drill**
+- **Strict Dictionary Test**
+
+Example mockup:
+![Main Menu](main-menu.png "Main menu mockup")
+
+The application should load example input JSON files such as [`sample-input.json`](sample-input.json). The file contains a list of question-answer items. The goal is to present each key (question), wait for user input, and then compare it with the expected value (answer). The user is notified whether the answer was correct.
+## Strict Dictionary Drill
+
+There should be a window that loads a sample JSON file and displays the following:
+- **Mode:** LEARN
+- **File name**
+- **Total:** Total number of questions to be asked
+- **Learned:** Number of correctly answered values
+- **Left:** Number of questions left to be asked
+- **Info:** "Press ESC to exit"
+- **Textbox "Question":** Read-only
+- **Textbox "Answer":** User enters the answer here
+Questions are asked in random order. If the user answers a question correctly, it will not be asked again in the session. Incorrectly answered questions will be repeated until answered correctly.
+
+## Strict Dictionary Test
+
+This mode looks the same as **Strict Dictionary Drill** with the following differences:
+- **Mode:** TEST (instead of LEARN)
+- **Answered:** Counter for correctly answered questions (replaces "Learned")
+Questions are asked in random order. Each question is asked exactly once.
+
+## Mockups
+
+Relevant mockups for **Strict Dictionary Drill** and **Strict Dictionary Test**:
+![Drill Window](drill-window.png "Drill window mockup")
+![After Correct Answer](drill-window-after-correct-answer.png "Drill window after correct answer")
+![After Incorrect Answer](drill-window-after-incorrect-answer.png "Drill window after incorrect answer")
+## Result
+
+After **Strict Dictionary Drill** or **Strict Dictionary Test** ends, a summary window is displayed with user statistics for the session.
+Example mockup:
+![Result After Drill](result-after-drill.png "Result after drill")
 # Application for learning foreign languages #
 Application should start with basic main menu with two buttons
 - Strict dictionary drill
