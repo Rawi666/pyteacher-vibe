@@ -3,6 +3,7 @@ MainWindow for Language Learning App (PySide6)
 """
 from PySide6.QtWidgets import QMainWindow, QWidget, QVBoxLayout, QLabel, QPushButton
 from PySide6.QtCore import Qt
+from pyteacher.utils.window_manager import window_manager
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -30,11 +31,17 @@ class MainWindow(QMainWindow):
 
         # Navigation logic
         def open_drill():
+            if self.drill_window:
+                self.drill_window.close()
             self.drill_window = DrillWindow()
+            window_manager.register_window('drill', self.drill_window)
             self.drill_window.show()
 
         def open_test():
+            if self.test_window:
+                self.test_window.close()
             self.test_window = TestWindow()
+            window_manager.register_window('test', self.test_window)
             self.test_window.show()
 
         drill_btn.clicked.connect(open_drill)

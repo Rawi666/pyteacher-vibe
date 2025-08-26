@@ -2,11 +2,11 @@
 Unit tests for TestController
 """
 from pyteacher.models.question import QuestionAnswer
-from pyteacher.controllers.test_controller import TestController
+from pyteacher.controllers.test_controller import QuizTestController
 
 def test_test_controller_flow():
     questions = [QuestionAnswer("Q1", "A1"), QuestionAnswer("Q2", "A2")]
-    controller = TestController(questions)
+    controller = QuizTestController(questions)
     controller.start_test()
     idx = controller.current_idx
     assert controller.check_answer("A1") is True or controller.check_answer("A2") is True

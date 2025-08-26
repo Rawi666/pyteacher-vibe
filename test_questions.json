@@ -1,0 +1,22 @@
+[
+  {
+    "question": "What is 2 + 2?",
+    "answer": "4"
+  },
+  {
+    "question": "What is the capital of France?",
+    "answer": "Paris"
+  },
+  {
+    "question": "What color is the sky?",
+    "answer": "blue"
+  },
+  {
+    "question": "How many days are in a week?",
+    "answer": "7"
+  },
+  {
+    "question": "What is the largest planet?",
+    "answer": "Jupiter"
+  }
+]
