@@ -5,8 +5,8 @@ from PySide6.QtWidgets import QDialog, QVBoxLayout, QLabel, QPushButton, QProgre
 from PySide6.QtCore import Qt
 
 class ResultsWindow(QDialog):
-    def __init__(self):
-        super().__init__()
+    def __init__(self, parent=None):
+        super().__init__(parent)
         self.setWindowTitle("Session Results")
         self.setGeometry(200, 200, 400, 250)
         self._init_ui()
@@ -36,3 +36,10 @@ class ResultsWindow(QDialog):
         layout.addWidget(close_btn)
         layout.addWidget(new_session_btn)
         self.setLayout(layout)
+
+        def close_all():
+            # Close both the results window and the parent drill/test window
+            if self.parent() is not None:
+                self.parent().close()
+            self.close()
+        close_btn.clicked.connect(close_all)

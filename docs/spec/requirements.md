@@ -83,4 +83,5 @@ Example mockups that are relevant for "Strict dictionary drill" and "Strict dict
 - drill-window-after-incorrect-answer.png
 
 ## Result ##
-After "Strict dictionary drill" or "Strict dictionary test" ends there is a summary window displayed with user statistics within this session. Example mockup is in result-after-drill.png
+After "Strict dictionary drill" or "Strict dictionary test" ends there is a summary window displayed with user statistics within this session. Example mockup is in result-after-drill.png.
+In this window there should be "Close" button and when I click it it should close the result window and the drill/test window so that I'm back at the main menu.

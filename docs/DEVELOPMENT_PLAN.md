@@ -179,7 +179,7 @@ This development plan outlines the major phases and tasks for building the langu
 - Implement clear visual presentation of results
 - Add progress bars for visual feedback using `QProgressBar`
 - Include motivational messages based on performance
-- Add "Close" and "New Session" buttons
+- Add "Close" and "New Session" buttons. The "Close" button should close both the results window and the drill/test window, returning the user to the main menu.
 
 ### Task 6.4: Data Persistence (Optional)
 - Store session history using SQLite or JSON files

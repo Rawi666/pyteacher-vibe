@@ -84,7 +84,7 @@ class DrillWindow(QWidget):
             if stats['left'] == 0:
                 from pyteacher.ui.results_window import ResultsWindow
                 from pyteacher.utils.statistics import StatisticsCalculator
-                results = ResultsWindow()
+                results = ResultsWindow(self)
                 perf = StatisticsCalculator.generate_performance_report(stats)
                 results.set_results({**stats, 'accuracy': perf['accuracy']})
                 results.exec()
