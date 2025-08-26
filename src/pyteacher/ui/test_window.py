@@ -5,6 +5,11 @@ from PySide6.QtWidgets import QWidget, QVBoxLayout, QLabel, QLineEdit, QPushButt
 from PySide6.QtCore import Qt, QTimer
 from PySide6.QtGui import QKeyEvent
 from pyteacher.utils.window_manager import window_manager
+from .styles import (
+    TEXTBOX_STYLE, CORRECT_FEEDBACK_STYLE, INCORRECT_FEEDBACK_STYLE,
+    BUTTON_STYLE, MODE_LABEL_STYLE, FILE_LABEL_STYLE, INSTRUCTION_LABEL_STYLE,
+    BOLD_LABEL_STYLE, FEEDBACK_LABEL_STYLE
+)
 import os
 
 
@@ -30,9 +35,9 @@ class TestWindow(QWidget):
 
         # Mode and file info
         self.mode_label = QLabel("Mode: TEST")
-        self.mode_label.setStyleSheet("font-weight: bold; font-size: 14px;")
+        self.mode_label.setStyleSheet(MODE_LABEL_STYLE)
         self.file_label = QLabel("File: <not loaded>")
-        self.file_label.setStyleSheet("color: #666;")
+        self.file_label.setStyleSheet(FILE_LABEL_STYLE)
 
         # Statistics
         stats_layout = QHBoxLayout()
@@ -45,27 +50,27 @@ class TestWindow(QWidget):
 
         # Instructions
         instruction_label = QLabel("Press ESC to exit")
-        instruction_label.setStyleSheet("color: #888; font-style: italic;")
+        instruction_label.setStyleSheet(INSTRUCTION_LABEL_STYLE)
 
         # Load button
         load_btn = QPushButton("Load Questions File")
-        load_btn.setStyleSheet("QPushButton { padding: 8px; }")
+        load_btn.setStyleSheet(BUTTON_STYLE)
 
         # Question and answer interface
         question_label = QLabel("Question:")
-        question_label.setStyleSheet("font-weight: bold;")
+        question_label.setStyleSheet(BOLD_LABEL_STYLE)
         self.question_edit = QLineEdit()
         self.question_edit.setReadOnly(True)
-        self.question_edit.setStyleSheet("QLineEdit { background-color: #f5f5f5; padding: 8px; font-size: 12px; }")
+        self.question_edit.setStyleSheet(TEXTBOX_STYLE)
 
         answer_label = QLabel("Answer:")
-        answer_label.setStyleSheet("font-weight: bold;")
+        answer_label.setStyleSheet(BOLD_LABEL_STYLE)
         self.answer_edit = QLineEdit()
-        self.answer_edit.setStyleSheet("QLineEdit { padding: 8px; font-size: 12px; }")
+        self.answer_edit.setStyleSheet(TEXTBOX_STYLE)
 
         # Feedback label for showing correct answer
         self.feedback_label = QLabel("")
-        self.feedback_label.setStyleSheet("color: #d32f2f; font-weight: bold; margin: 5px;")
+        self.feedback_label.setStyleSheet(FEEDBACK_LABEL_STYLE)
         self.feedback_label.hide()
 
         # Layout assembly
@@ -126,24 +131,10 @@ class TestWindow(QWidget):
     def _show_feedback(self, correct: bool):
         """Show visual feedback for answer"""
         if correct:
-            self.answer_edit.setStyleSheet("""
-                QLineEdit {
-                    background-color: #c8e6c9;
-                    border: 2px solid #4caf50;
-                    padding: 8px;
-                    font-size: 12px;
-                }
-            """)
+            self.answer_edit.setStyleSheet(CORRECT_FEEDBACK_STYLE)
             self.feedback_label.hide()
         else:
-            self.answer_edit.setStyleSheet("""
-                QLineEdit {
-                    background-color: #ffcdd2;
-                    border: 2px solid #f44336;
-                    padding: 8px;
-                    font-size: 12px;
-                }
-            """)
+            self.answer_edit.setStyleSheet(INCORRECT_FEEDBACK_STYLE)
             # Show correct answer
             if self.controller:
                 correct_answer = self.controller.get_current_correct_answer()
@@ -155,7 +146,7 @@ class TestWindow(QWidget):
 
     def _clear_feedback(self):
         """Clear visual feedback"""
-        self.answer_edit.setStyleSheet("QLineEdit { padding: 8px; font-size: 12px; }")
+        self.answer_edit.setStyleSheet(TEXTBOX_STYLE)
         self.feedback_label.hide()
 
     def _proceed_to_next(self):
