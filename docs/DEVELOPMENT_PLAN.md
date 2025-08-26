@@ -313,4 +313,8 @@ src/pyteacher/
 ## References
 - [Requirements](spec/requirements.md)
 - [Sample Input](spec/sample-input.json)
-- [Mockups](spec/main-menu.png), (spec/drill-window.png), (spec/drill-window-after-correct-answer.png), (spec/drill-window-after-incorrect-answer.png), (spec/result-after-drill.png)
+- [Main Menu Mockup](spec/main-menu.png)
+- [Drill Window Mockup](spec/drill-window.png)
+- [Drill Window After Correct Answer](spec/drill-window-after-correct-answer.png)
+- [Drill Window After Incorrect Answer](spec/drill-window-after-incorrect-answer.png)
+- [Result After Drill](spec/result-after-drill.png)
