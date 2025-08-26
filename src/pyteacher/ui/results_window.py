@@ -4,6 +4,8 @@ ResultsWindow for session summary
 from PySide6.QtWidgets import QDialog, QVBoxLayout, QLabel, QPushButton, QProgressBar, QHBoxLayout
 from PySide6.QtCore import Qt
 from pyteacher.utils.window_manager import window_manager
+from .styles import (WINDOW_STYLE, RESULTS_TITLE_STYLE, RESULTS_STATS_STYLE,
+                     RESULTS_ACCURACY_STYLE, BUTTON_STYLE, COLORS)
 
 
 class ResultsWindow(QDialog):
@@ -12,6 +14,7 @@ class ResultsWindow(QDialog):
         self.setWindowTitle("Session Results")
         self.setGeometry(200, 200, 450, 300)
         self.setModal(True)
+        self.setStyleSheet(WINDOW_STYLE)
         self._init_ui()
 
     def set_results(self, stats: dict):
@@ -43,6 +46,7 @@ class ResultsWindow(QDialog):
             message = "💪 Keep practicing! You'll improve with time!"
 
         self.motivation_label.setText(message)
+        self.motivation_label.setStyleSheet(f"color: {COLORS['accent_primary']}; font-weight: bold; margin: 10px;")
 
     def _init_ui(self):
         """Initialize the UI components"""
@@ -50,40 +54,42 @@ class ResultsWindow(QDialog):
 
         # Title
         title_label = QLabel("Session Statistics")
-        title_label.setStyleSheet("font-size: 16px; font-weight: bold; margin: 10px;")
+        title_label.setStyleSheet(RESULTS_TITLE_STYLE)
         title_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
         # Statistics
         self.total_label = QLabel("Total Questions: 0")
-        self.total_label.setStyleSheet("font-size: 12px; margin: 5px;")
+        self.total_label.setStyleSheet(RESULTS_STATS_STYLE)
 
         self.correct_label = QLabel("Correct Answers: 0")
-        self.correct_label.setStyleSheet("font-size: 12px; margin: 5px;")
+        self.correct_label.setStyleSheet(RESULTS_STATS_STYLE)
 
         self.accuracy_label = QLabel("Accuracy: 0%")
-        self.accuracy_label.setStyleSheet("font-size: 14px; font-weight: bold; margin: 5px;")
+        self.accuracy_label.setStyleSheet(RESULTS_ACCURACY_STYLE)
 
         # Progress bar
         self.progress_bar = QProgressBar()
         self.progress_bar.setRange(0, 100)
         self.progress_bar.setValue(0)
-        self.progress_bar.setStyleSheet("""
-            QProgressBar {
-                border: 2px solid grey;
-                border-radius: 5px;
+        self.progress_bar.setStyleSheet(f"""
+            QProgressBar {{
+                background-color: {COLORS['background_secondary']};
+                border: 1px solid {COLORS['border_default']};
+                border-radius: 4px;
                 text-align: center;
                 height: 25px;
                 margin: 5px;
-            }
-            QProgressBar::chunk {
-                background-color: #4CAF50;
+                color: {COLORS['text_primary']};
+            }}
+            QProgressBar::chunk {{
+                background-color: {COLORS['accent_success']};
                 border-radius: 3px;
-            }
+            }}
         """)
 
         # Motivational message
         self.motivation_label = QLabel("")
-        self.motivation_label.setStyleSheet("color: #2196F3; font-weight: bold; margin: 10px;")
+        self.motivation_label.setStyleSheet(f"color: {COLORS['accent_primary']}; font-weight: bold; margin: 10px;")
         self.motivation_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.motivation_label.setWordWrap(True)
 
@@ -91,11 +97,11 @@ class ResultsWindow(QDialog):
         button_layout = QHBoxLayout()
 
         close_btn = QPushButton("Close")
-        close_btn.setStyleSheet("QPushButton { padding: 8px 16px; min-width: 80px; }")
+        close_btn.setStyleSheet(BUTTON_STYLE)
         close_btn.setDefault(True)
 
         new_session_btn = QPushButton("New Session")
-        new_session_btn.setStyleSheet("QPushButton { padding: 8px 16px; min-width: 80px; }")
+        new_session_btn.setStyleSheet(BUTTON_STYLE)
 
         button_layout.addWidget(new_session_btn)
         button_layout.addWidget(close_btn)

@@ -8,7 +8,7 @@ from pyteacher.utils.window_manager import window_manager
 from .styles import (
     TEXTBOX_STYLE, CORRECT_FEEDBACK_STYLE, INCORRECT_FEEDBACK_STYLE,
     BUTTON_STYLE, MODE_LABEL_STYLE, FILE_LABEL_STYLE, INSTRUCTION_LABEL_STYLE,
-    BOLD_LABEL_STYLE, FEEDBACK_LABEL_STYLE
+    BOLD_LABEL_STYLE, FEEDBACK_LABEL_STYLE, STATS_LABEL_STYLE, WINDOW_STYLE
 )
 import os
 
@@ -18,6 +18,7 @@ class TestWindow(QWidget):
         super().__init__()
         self.setWindowTitle("Strict Dictionary Test")
         self.setGeometry(150, 150, 500, 400)
+        self.setStyleSheet(WINDOW_STYLE)
         self.controller = None
         self.questions = []
         self.file_name = None
@@ -43,8 +44,11 @@ class TestWindow(QWidget):
         # Statistics
         stats_layout = QHBoxLayout()
         self.total_label = QLabel("Total: 0")
+        self.total_label.setStyleSheet(STATS_LABEL_STYLE)
         self.answered_label = QLabel("Answered: 0")
+        self.answered_label.setStyleSheet(STATS_LABEL_STYLE)
         self.left_label = QLabel("Left: 0")
+        self.left_label.setStyleSheet(STATS_LABEL_STYLE)
         stats_layout.addWidget(self.total_label)
         stats_layout.addWidget(self.answered_label)
         stats_layout.addWidget(self.left_label)

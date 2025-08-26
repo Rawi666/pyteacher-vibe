@@ -87,3 +87,7 @@ Example mockups that are relevant for "Strict dictionary drill" and "Strict dict
 ## Result ##
 After "Strict dictionary drill" or "Strict dictionary test" ends there is a summary window displayed with user statistics within this session. Example mockup is in result-after-drill.png.
 In this window there should be "Close" button and when I click it it should close the result window and the drill/test window so that I'm back at the main menu.
+
+## UI Look and Feel ##
+Application has to look the same independently of OS theme whether it is light or dark theme.
+Application should always have modern dark mode and colors.

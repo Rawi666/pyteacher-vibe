@@ -5,7 +5,56 @@ author1: "Your Name"
 
 ## Overview
 
-This development plan outlines the major phases and tasks for building the language learning application as described in the requirements. The plan is divided into milestones, each with a breakdown of actionable tasks.
+This development plan outlines the major phases and tasks for building the language learning application as described in the r### Task 8.1: Answer Nor### Task 8.3: Error Ha### Task 9.2: Navi### Task 9.4: Focus Man### Task 10.2: Integr### Task 10.4: Perf### Task 11.2: User Documentation
+- Create user manual with screenshots
+- Write installation and setup guide
+- Document supported file formats
+
+### Task 11.3: Deployment Preparatione Testing
+- Test with large question sets
+- Memory usage optimization
+- Application startup time optimization
+
+## Milestone 11: Documentation & Finalization
+
+### Task 11.1: Code Documentationsting
+- Test complete drill workflow
+- Test complete test workflow
+- Test navigation between windows
+- Test file loading and error handling
+- Test window management and cleanup
+
+### Task 10.3: UI Testing- Ensure consistent focus behavior across all windows
+- Handle focus restoration after dialog interactions
+- Implement keyboard navigation support
+- Test focus behavior with different input methods
+
+## Milestone 10: Testing & Quality Assurance
+
+### Task 10.1: Unit Testingow
+- Implement consistent navigation patterns between windows
+- Handle window closing events properly
+- Ensure ESC key behavior is consistent across all windows
+- Implement proper parent-child window relationships
+
+### Task 9.3: Session State Managementfor Data Loading
+- Handle malformed JSON files with user-friendly error messages
+- Implement recovery strategies for file loading failures
+- Add validation for JSON structure and content
+- Display helpful error dialogs with actionable advice
+
+## Milestone 9: Window Management & Navigation
+
+### Task 9.1: Window Manager Implementationn
+- Implement case-insensitive answer comparison
+- Handle leading/trailing whitespace in user input
+- Normalize punctuation and special characters
+- Create `AnswerValidator` class with methods:
+  - `normalize_input(user_input: str) -> str`
+  - `compare_answers(user_answer: str, correct_answer: str) -> bool`
+  - `handle_special_cases(answer: str) -> str`
+
+### Task 8.2: Input Validations. The plan is divided into milestones, each with a breakdown of actionable tasks.
 
 ## Milestone 1: Project Setup
 
@@ -204,9 +253,35 @@ This development plan outlines the major phases and tasks for building the langu
 - Create `SessionHistory` class for data persistence
 - Add option to view historical performance
 
-## Milestone 7: Input Validation & Answer Processing
+## Milestone 7: UI Look and Feel Implementation
 
-### Task 7.1: Answer Normalization
+### Task 7.1: Dark Mode Theme Implementation
+- Create comprehensive dark mode stylesheet in `styles.py`
+- Define consistent color palette for all UI components
+- Implement application-wide dark theme that overrides OS settings
+- Ensure modern dark mode appearance with appropriate contrast ratios
+
+### Task 7.2: Application Theme Configuration
+- Set application-wide dark palette in `main.py` using `QPalette`
+- Override system theme detection to enforce consistent appearance
+- Configure window backgrounds and widget styling
+- Test theme consistency across different operating systems
+
+### Task 7.3: UI Component Styling
+- Apply dark theme styles to all windows (MainWindow, DrillWindow, TestWindow, ResultsWindow)
+- Style all UI components consistently (buttons, labels, text boxes, layouts)
+- Ensure proper visual hierarchy with appropriate colors and typography
+- Implement hover effects and focus states for interactive elements
+
+### Task 7.4: Theme Testing and Validation
+- Test application appearance on different OS themes (light/dark)
+- Verify consistent styling across all application windows
+- Validate color contrast and accessibility requirements
+- Test with various system font sizes and scaling settings
+
+## Milestone 8: Input Validation & Answer Processing
+
+### Task 8.1: Answer Normalization
 - Implement case-insensitive answer comparison
 - Handle leading/trailing whitespace in user input
 - Normalize punctuation and special characters
@@ -215,13 +290,13 @@ This development plan outlines the major phases and tasks for building the langu
   - `compare_answers(user_answer: str, correct_answer: str) -> bool`
   - `handle_special_cases(answer: str) -> str`
 
-### Task 7.2: Input Validation
+### Task 8.2: Input Validation
 - Validate user input before processing
 - Handle empty input gracefully
 - Provide user feedback for invalid input
 - Implement input length limits if necessary
 
-### Task 7.3: Error Handling for Data Loading
+### Task 8.3: Error Handling for Data Loading
 - Handle malformed JSON files with user-friendly error messages
 - Implement recovery strategies for file loading failures
 - Add validation for JSON structure and content
@@ -229,25 +304,25 @@ This development plan outlines the major phases and tasks for building the langu
 
 ## Milestone 8: Window Management & Navigation
 
-### Task 8.1: Window Manager Implementation
+### Task 9.1: Window Manager Implementation
 - Create `WindowManager` class to handle window lifecycle
 - Implement proper window switching and cleanup
 - Manage window stack and navigation history
 - Ensure memory management and resource cleanup
 
-### Task 8.2: Navigation Flow
+### Task 9.2: Navigation Flow
 - Implement consistent navigation patterns between windows
 - Handle window closing events properly
 - Ensure ESC key behavior is consistent across all windows
 - Implement proper parent-child window relationships
 
-### Task 8.3: Session State Management
+### Task 9.3: Session State Management
 - Create centralized session state management
 - Track current mode (LEARN vs TEST)
 - Maintain session statistics across window transitions
 - Implement proper session cleanup and initialization
 
-### Task 8.4: Focus Management
+### Task 9.4: Focus Management
 - Ensure consistent focus behavior across all windows
 - Handle focus restoration after dialog interactions
 - Implement keyboard navigation support
@@ -255,50 +330,51 @@ This development plan outlines the major phases and tasks for building the langu
 
 ## Milestone 9: Testing & Quality Assurance
 
-### Task 9.1: Unit Testing
+### Task 10.1: Unit Testing
 - Test data loading and validation
 - Test question management logic
 - Test statistics calculations
 - Test answer normalization and comparison
 - Use `pytest` with `pytest-qt` for GUI testing
 
-### Task 9.2: Integration Testing
+### Task 10.2: Integration Testing
 - Test complete drill workflow
 - Test complete test workflow
 - Test navigation between windows
 - Test file loading and error handling
 - Test window management and cleanup
 
-### Task 9.3: UI Testing
+### Task 10.3: UI Testing
 - Test keyboard shortcuts and interactions
 - Test window resizing and responsiveness
 - Validate against mockup designs
 - Test accessibility features
 - Test focus management across all scenarios
+- Test dark mode theme consistency across different OS environments
 
-### Task 9.4: Performance Testing
+### Task 10.4: Performance Testing
 - Test with large question sets
 - Memory usage optimization
 - Application startup time optimization
 
 ## Milestone 10: Documentation & Finalization
 
-### Task 10.1: Code Documentation
+### Task 11.1: Code Documentation
 - Complete docstrings for all classes and methods
 - Add inline comments for complex logic
 - Generate API documentation using Sphinx (optional)
 
-### Task 10.2: User Documentation
+### Task 11.2: User Documentation
 - Create user manual with screenshots
 - Write installation and setup guide
 - Document supported file formats
 
-### Task 10.3: Deployment Preparation
+### Task 11.3: Deployment Preparation
 - Create executable using PyInstaller
 - Test on different operating systems
 - Package application with required assets
 
-### Task 10.4: Final Review
+### Task 11.4: Final Review
 - Code review and refactoring
 - Performance optimization
 - Security review for file operations
@@ -380,6 +456,12 @@ This development plan addresses all specific requirements from the specification
 - **Random Order**: Questions presented in random sequence
 - **Answer Processing**: Case-insensitive comparison with whitespace normalization
 
+#### UI Look and Feel Requirements
+- **Consistent Dark Theme**: Application must always display with modern dark mode colors
+- **OS Theme Independence**: Appearance must be consistent regardless of OS theme (light/dark)
+- **Modern Styling**: Use contemporary dark UI design patterns and appropriate contrast ratios
+- **Component Consistency**: All windows and UI components must follow the same dark theme
+
 ### PySide6 Best Practices
 - Use signals and slots for communication between components
 - Implement proper resource management (close windows, cleanup)
@@ -416,10 +498,11 @@ This development plan addresses all specific requirements from the specification
 - Milestones 4-5: Drill and test mode implementation
 
 ### Phase 3 (Week 3): Enhanced Features
-- Milestones 6-8: Results system, input validation, and window management
+- Milestones 6-7: Results system and UI theme implementation
+- Milestones 8-9: Input validation and window management
 
 ### Phase 4 (Week 4): Polish & Testing
-- Milestones 9-10: Comprehensive testing, documentation, and deployment
+- Milestones 10-11: Comprehensive testing, documentation, and deployment
 
 ## References
 - [Requirements](spec/requirements.md)
