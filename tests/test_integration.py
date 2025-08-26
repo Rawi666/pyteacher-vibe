@@ -147,3 +147,87 @@ class TestDrillWorkflow:
         controller.session.correct.clear()  # Clear correct answers
         controller.current_idx = paris_question_idx
         assert controller.check_answer("Paris!") is True
+
+    def test_drill_window_feedback_flow(self):
+        """Test feedback flow requiring ENTER key press to proceed"""
+        window = DrillWindow()
+        window.show()
+
+        # Create sample questions for testing
+        questions = [
+            QuestionAnswer("Test question 1", "answer1"),
+            QuestionAnswer("Test question 2", "answer2")
+        ]
+
+        # Set up controller directly for testing
+        from pyteacher.controllers.drill_controller import DrillController
+        window.controller = DrillController(questions)
+        window.controller.start_drill()
+        window.questions = questions
+        window._update_ui()
+
+        # Initially should not be in feedback mode
+        assert window.waiting_for_feedback_enter is False
+        assert window.answer_edit.isReadOnly() is False
+
+        # Type an answer
+        window.answer_edit.setText("wrong answer")
+
+        # Simulate ENTER key press to submit answer
+        QTest.keyPress(window.answer_edit, Qt.Key.Key_Return)
+
+        # Should now be in feedback mode
+        assert window.waiting_for_feedback_enter is True
+        assert window.answer_edit.isReadOnly() is True
+
+        # Simulate ENTER key press to proceed (should advance to next question)
+        QTest.keyPress(window.answer_edit, Qt.Key.Key_Return)
+
+        # Should no longer be in feedback mode
+        assert window.waiting_for_feedback_enter is False
+        assert window.answer_edit.isReadOnly() is False
+
+        window.close()
+
+    def test_test_window_feedback_flow(self):
+        """Test feedback flow in test window requiring ENTER key press to proceed"""
+        from pyteacher.ui.test_window import TestWindow
+
+        window = TestWindow()
+        window.show()
+
+        # Create sample questions for testing
+        questions = [
+            QuestionAnswer("Test question 1", "answer1"),
+            QuestionAnswer("Test question 2", "answer2")
+        ]
+
+        # Set up controller directly for testing
+        from pyteacher.controllers.test_controller import QuizTestController
+        window.controller = QuizTestController(questions)
+        window.controller.start_test()
+        window.questions = questions
+        window._update_ui()
+
+        # Initially should not be in feedback mode
+        assert window.waiting_for_feedback_enter is False
+        assert window.answer_edit.isReadOnly() is False
+
+        # Type an answer
+        window.answer_edit.setText("wrong answer")
+
+        # Simulate ENTER key press to submit answer
+        QTest.keyPress(window.answer_edit, Qt.Key.Key_Return)
+
+        # Should now be in feedback mode
+        assert window.waiting_for_feedback_enter is True
+        assert window.answer_edit.isReadOnly() is True
+
+        # Simulate ENTER key press to proceed (should advance to next question)
+        QTest.keyPress(window.answer_edit, Qt.Key.Key_Return)
+
+        # Should no longer be in feedback mode
+        assert window.waiting_for_feedback_enter is False
+        assert window.answer_edit.isReadOnly() is False
+
+        window.close()

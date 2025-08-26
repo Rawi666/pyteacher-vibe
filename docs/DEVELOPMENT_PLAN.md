@@ -131,10 +131,12 @@ This development plan outlines the major phases and tasks for building the langu
 - Implement visual feedback for correct answers (green highlighting)
 - Implement visual feedback for incorrect answers (red highlighting)
 - Add sound effects (optional) using `QSoundEffect`
-- Display correct answer briefly after incorrect attempt (2-3 seconds)
-- Implement feedback timing to allow user to see result before proceeding
+- Display correct answer after incorrect attempt until user proceeds
+- **CRITICAL**: After providing each answer, user sees feedback and must press ENTER to proceed to next question
+- Implement feedback state management to pause progression until user input
 - Clear visual feedback states when presenting new questions
 - Ensure smooth transitions between feedback states
+- Handle ENTER key press during feedback mode to advance to next question
 
 ### Task 4.5: Keyboard Shortcuts and Navigation
 - Implement ESC key to exit drill and return to main menu

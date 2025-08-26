@@ -24,6 +24,7 @@ class TestWindow(QWidget):
         self.feedback_timer = QTimer()
         self.feedback_timer.timeout.connect(self._clear_feedback)
         self.feedback_timer.setSingleShot(True)
+        self.waiting_for_feedback_enter = False  # Track if waiting for ENTER after feedback
         self._init_ui()
 
     def _init_ui(self):
@@ -112,6 +113,11 @@ class TestWindow(QWidget):
                 FileManager.show_error(self, f"Unexpected error loading file: {e}")
 
         def submit_answer():
+            # If waiting for feedback ENTER, proceed to next question
+            if self.waiting_for_feedback_enter:
+                self._proceed_to_next()
+                return
+
             if not self.controller or self.controller.current_idx is None:
                 return
 
@@ -121,9 +127,6 @@ class TestWindow(QWidget):
 
             correct = self.controller.check_answer(user_input)
             self._show_feedback(correct)
-
-            # Move to next question after brief delay
-            QTimer.singleShot(200, self._proceed_to_next)
 
         load_btn.clicked.connect(load_file)
         self.answer_edit.returnPressed.connect(submit_answer)
@@ -141,18 +144,24 @@ class TestWindow(QWidget):
                 self.feedback_label.setText(f"Correct answer: {correct_answer}")
                 self.feedback_label.show()
 
-        # Start timer to clear feedback
-        self.feedback_timer.start(2500)  # 2.5 seconds
+        # Set waiting state for user to press ENTER to proceed
+        self.waiting_for_feedback_enter = True
+        self.answer_edit.setReadOnly(True)  # Disable editing during feedback
 
     def _clear_feedback(self):
         """Clear visual feedback"""
         self.answer_edit.setStyleSheet(TEXTBOX_STYLE)
+        self.answer_edit.setReadOnly(False)  # Re-enable editing
         self.feedback_label.hide()
+        self.waiting_for_feedback_enter = False
 
     def _proceed_to_next(self):
         """Move to next question"""
         if not self.controller:
             return
+
+        # Clear feedback state first
+        self._clear_feedback()
 
         self.controller.next_question()
         self.answer_edit.clear()

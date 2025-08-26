@@ -67,7 +67,9 @@ There should be a window that loads a sample json file and displays the followin
 - Textbox with label "Question", it should be readonly
 - Textbox with label "Answer", this is the place where user enters the answer
 
-Questions are asked in random order. If the user correctly answers the question then this question will not be asked again in this session. If the answer was not provided correctly then it will be asked again until the correct answer is provided but program should proceed to another question.
+Questions are asked in random order.
+If the user correctly answers the question then this question will not be asked again in this session. If the answer was not provided correctly then it will be asked again until the correct answer is provided but program should proceed to another question.
+After providing each answer the user sees the feedback and needs to press ENTER to proceed to the next question or end of drill/test.
 
 ## Strict dictionary test ##
 Looks the same as "Strict dictionary drill" with notable differences:
