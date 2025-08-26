@@ -1,0 +1,18 @@
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+python_files = "test_*.py"
+python_classes = "Test*"
+python_functions = "test_*"
+addopts = [
+    "-v",
+    "--tb=short",
+    "--strict-markers",
+    "--disable-warnings",
+    "--color=yes"
+]
+markers = [
+    "unit: Unit tests",
+    "integration: Integration tests",
+    "slow: Tests that take a long time to run"
+]
