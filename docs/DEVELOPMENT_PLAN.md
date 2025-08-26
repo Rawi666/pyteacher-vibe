@@ -311,6 +311,6 @@ src/pyteacher/
 - Milestone 8: Documentation, packaging, and deployment
 
 ## References
-- [Requirements](../spec/requirements.md)
-- [Sample Input](../spec/sample-input.json)
-- [Mockups](../spec/main-menu.png), (../spec/drill-window.png), (../spec/drill-window-after-correct-answer.png), (../spec/drill-window-after-incorrect-answer.png), (../spec/result-after-drill.png)
+- [Requirements](spec/requirements.md)
+- [Sample Input](spec/sample-input.json)
+- [Mockups](spec/main-menu.png), (spec/drill-window.png), (spec/drill-window-after-correct-answer.png), (spec/drill-window-after-incorrect-answer.png), (spec/result-after-drill.png)
