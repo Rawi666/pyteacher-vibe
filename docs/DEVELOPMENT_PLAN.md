@@ -244,8 +244,7 @@ This development plan outlines the major phases and tasks for building the langu
 - Implement clear visual presentation of results
 - Add progress bars for visual feedback using `QProgressBar`
 - Include motivational messages based on performance
-- Add "Close" button that closes both results window and drill/test window, returning to main menu
-- Add "New Session" button for quick restart
+- Add single "Close" button that closes both results window and drill/test window, returning to main menu
 - Implement proper window cleanup and navigation flow
 
 ### Task 6.4: Data Persistence (Optional)

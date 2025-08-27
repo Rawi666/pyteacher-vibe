@@ -100,10 +100,6 @@ class ResultsWindow(QDialog):
         close_btn.setStyleSheet(BUTTON_STYLE)
         close_btn.setDefault(True)
 
-        new_session_btn = QPushButton("New Session")
-        new_session_btn.setStyleSheet(BUTTON_STYLE)
-
-        button_layout.addWidget(new_session_btn)
         button_layout.addWidget(close_btn)
 
         # Add all widgets to main layout
@@ -126,11 +122,4 @@ class ResultsWindow(QDialog):
             # Use window manager to properly close all windows and return to main menu
             window_manager.close_all_except_main()
 
-        def new_session():
-            """Start a new session - for now just close and return to main menu"""
-            self.accept()  # Close results window
-            # For simplicity, just return to main menu - user can reload file
-            window_manager.close_all_except_main()
-
         close_btn.clicked.connect(close_all)
-        new_session_btn.clicked.connect(new_session)

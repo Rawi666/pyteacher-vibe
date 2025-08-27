@@ -162,11 +162,10 @@
 
 **Result:** Users can type answers immediately without clicking, exactly as specified.
 
-## 7. ✅ Results Window Navigation (Task 6.3)
+## 7. ✅ Results Window Navigation (Task 6.3) - UPDATED TO MATCH REQUIREMENTS
 
 **Implemented:**
-- ✅ Close button closes both results and drill/test windows, returns to main menu
-- ✅ New Session button for quick restart
+- ✅ Single "Close" button closes both results and drill/test windows, returns to main menu
 - ✅ Motivational messages based on performance
 - ✅ Professional progress bar and statistics display
 - ✅ Proper window cleanup and navigation flow
@@ -176,6 +175,7 @@
 - Performance-based motivational messages (🎉 Excellent, 👍 Great, etc.)
 - Proper window management using WindowManager
 - Clean UI with better styling
+- **Updated**: Removed "New Session" button to comply with updated requirements
 
 ## 8. ✅ Session State Management (Task 8.3)
 

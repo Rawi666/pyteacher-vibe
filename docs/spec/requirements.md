@@ -45,9 +45,10 @@ Relevant mockups for **Strict Dictionary Drill** and **Strict Dictionary Test**:
 ![After Incorrect Answer](drill-window-after-incorrect-answer.png "Drill window after incorrect answer")
 ## Result
 
-After **Strict Dictionary Drill** or **Strict Dictionary Test** ends, a summary window is displayed with user statistics for the session.
+After **Strict Dictionary Drill** or **Strict Dictionary Test** ends, a summary window is displayed with user statistics for the session. There should be only one button "Close" which should close the summary and underlying parent quizz window.
 Example mockup:
 ![Result After Drill](result-after-drill.png "Result after drill")
+
 # Application for learning foreign languages #
 Application should start with basic main menu with two buttons
 - Strict dictionary drill
