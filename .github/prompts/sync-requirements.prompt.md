@@ -9,7 +9,7 @@ You're a senior expert software engineer with extensive experience in maintainin
 
 ## Task
 
-1. Take a deep breath, and review what has changed in business requirements located in docs/specs/requirements.md. Focus on parts of text that is changed but not yet commited.
+1. Take a deep breath and review what has changed in business requirements located in docs/specs/requirements.md. Focus on parts of text that are changed but not yet commited.
 2. Analyze development plan thoroughly and apply changes so that they are in sync
 3. After deployment plan is up to date analyze souce code and tests thoroughly
 4. Summarize what changes need to be made to make the code and tests be compliant with development plan and business requirements
